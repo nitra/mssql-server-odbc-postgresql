@@ -52,10 +52,10 @@ jobs:
           version: latest
           endpoint: builders
 
-      - name: build amd64
+      - name: build and push
         run: |
           docker buildx build . \
           --progress=plain \
-          --platform linux/amd64 \
+          --platform linux/amd64,linux/arm64 \
           --tag nitra/mssql-server:latest \
           --push
